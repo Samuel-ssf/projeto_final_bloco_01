@@ -3,15 +3,27 @@ package projeto_final_bloco_01;
 import java.io.IOException;
 import java.util.Scanner;
 
+import projeto_final_bloco_01.model.Acessorios;
+import projeto_final_bloco_01.model.Bicicletas;
 import projeto_final_bloco_01.util.Cores;
 
 public class Menu {
 
-	public static void main(String[] args) {
+	public static <Bicicleta> void main(String[] args) {
 
 		Scanner leia = new Scanner(System.in);
 
 		int opcao;
+		
+		//Teste para dados//
+		
+		Bicicletas b1 = new Bicicletas(1, "OGGI", 1, 3450.00f, "Aro 29");
+		b1.visualizar();
+		
+		Acessorios a1 = new Acessorios(2, "GTS ", 2 , 200.00f, "Capacete");
+		a1.visualizar();
+
+
 
 		while (true) {
 
@@ -51,26 +63,33 @@ public class Menu {
 
 			case 1:
 				System.out.println("Criar Produto\n\n");
-				
+
+				keyPress();
 				break;
 			case 2:
 				System.out.println("Listar todos os Produtos\n\n");
-				
+
+				keyPress();
 				break;
 			case 3:
 				System.out.println("Consultar dados do Produto - por número\n\n");
 
+				keyPress();
 				break;
 			case 4:
 				System.out.println("Atualizar dados do Produto\n\n");
 
+				keyPress();
 				break;
 			case 5:
 				System.out.println("Apagar o Produto\n\n");
 
+				keyPress();
 				break;
-				default:
+			default:
 				System.out.println("\nOpção Inválida!\n");
+
+				keyPress();
 				break;
 			}
 		}
@@ -95,7 +114,7 @@ public class Menu {
 			int input;
 			while ((input = System.in.read()) != '\n') {
 
-				// Ignora qualquer outra tecla diferente do Enter
+
 				if (input == -1) {
 					throw new IOException("Entrada encerrada inesperadamente");
 				}
