@@ -1,10 +1,13 @@
 package projeto_final_bloco_01;
 
 import java.io.IOException;
+import java.util.Optional;
 import java.util.Scanner;
 
+import projeto_final_bloco_01.controller.ProdutoController;
 import projeto_final_bloco_01.model.Acessorios;
 import projeto_final_bloco_01.model.Bicicletas;
+import projeto_final_bloco_01.model.Produto;
 import projeto_final_bloco_01.util.Cores;
 
 public class Menu {
@@ -13,17 +16,20 @@ public class Menu {
 
 		Scanner leia = new Scanner(System.in);
 
-		int opcao;
-		
-		//Teste para dados//
-		
-		Bicicletas b1 = new Bicicletas(1, "OGGI", 1, 3450.00f, "Aro 29");
-		b1.visualizar();
-		
-		Acessorios a1 = new Acessorios(2, "GTS ", 2 , 200.00f, "Capacete");
+		ProdutoController produtos = new ProdutoController();
+		int opcao, id = 0, tipo;
+		String nome, bicicleta, acessorio;
+		int preco;
+
+		// Teste para dados//
+
+		Bicicletas b1 = new Bicicletas(produtos.gerarid(), "OGGI", 1, 3450.00f, "Aro 29");
+		produtos.cadastrar(b1);
+
+		Acessorios a1 = new Acessorios(produtos.gerarid(), "GTS ", 2, 200.00f, "Capacete");
 		a1.visualizar();
 
-
+		produtos.listarTodos();
 
 		while (true) {
 
@@ -64,25 +70,65 @@ public class Menu {
 			case 1:
 				System.out.println("Criar Produto\n\n");
 
+			
+
 				keyPress();
 				break;
 			case 2:
 				System.out.println("Listar todos os Produtos\n\n");
-
+				produtos.listarTodos();
 				keyPress();
 				break;
 			case 3:
-				System.out.println("Consultar dados do Produto - por número\n\n");
+				System.out.println("Consultar dados do Produto - por ID\n\n");
+
+				System.out.println("Digite o ID da Produto:");
+				id = leia.nextInt();
+
+				produtos.ProcurarPorId(id);
 
 				keyPress();
 				break;
 			case 4:
 				System.out.println("Atualizar dados do Produto\n\n");
 
+				Optional<Produto> produto = produtos.buscarNaCollection(id);
+
+				System.out.println("\nDigite o Nome do Produto:");
+				nome = leia.nextLine();
+
+				tipo = produto.get().getTipo();
+
+				System.out.println("\nDigite o Peço do Produto:");
+				preco = leia.nextInt();
+
+				switch (tipo) {
+				case 1 -> {
+					System.out.println("\nDigite o Material do Quadro:");
+					bicicleta = leia.nextLine();
+					leia.skip("\\R");
+					produtos.cadastrar(new Bicicletas(produtos.gerarid(), nome, tipo, preco, bicicleta));
+				}
+
+				case 2 -> {
+					System.out.println("\nDigite o Tamanho:");
+					leia.skip("\\R");
+					bicicleta = leia.nextLine();
+					produtos.cadastrar(new Bicicletas(produtos.gerarid(), nome, tipo, preco, bicicleta));
+				}
+				}
+
+				System.out.printf("\nO Produto ID %d nao existe!");
+
 				keyPress();
 				break;
 			case 5:
-				System.out.println("Apagar o Produto\n\n");
+				System.out.println(Cores.TEXT_WHITE + "Apagar o Produto\n\n");
+
+				System.out.println("Deletar o ID do Produto:");
+				id = leia.nextInt();
+
+				produtos.ProcurarPorId(id);
 
 				keyPress();
 				break;
@@ -113,7 +159,6 @@ public class Menu {
 			System.out.println(Cores.TEXT_RESET + "\n\nPressione Enter para Continuar...");
 			int input;
 			while ((input = System.in.read()) != '\n') {
-
 
 				if (input == -1) {
 					throw new IOException("Entrada encerrada inesperadamente");

@@ -59,7 +59,7 @@ public abstract class Produto {
 
 		switch (this.tipo) {
 		case 1 -> tipo = "Bicicleta";
-		case 2 -> tipo = "Acessório";
+		case 2 -> tipo = "Acessorio";
 		default -> tipo = "Invalido";
 		}
 
