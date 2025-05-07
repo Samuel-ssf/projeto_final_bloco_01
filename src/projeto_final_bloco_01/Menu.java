@@ -23,14 +23,14 @@ public class Menu {
 			System.out.println("********************************************************");
 			System.out.println("*                                                      *");
 			System.out.println("*              1 - Criar Produto                       *");
-			System.out.println("*              2 - Listar Todas as Produtos            *");
+			System.out.println("*              2 - Listar Todos os Produtos            *");
 			System.out.println("*              3 - Buscar Produto por Numero           *");
-			System.out.println("*              4 - Atualizar Dados da Produto          *");
+			System.out.println("*              4 - Atualizar Dados do Produto          *");
 			System.out.println("*              5 - Apagar Produto                      *");
 			System.out.println("*              6 - Sair                                *");
 			System.out.println("*                                                      *");
 			System.out.println("********************************************************");
-			System.out.println("*              ENTRE COM A OP«√O DESEJADA:             *");
+			System.out.println("*              ENTRE COM A OP√á√ÉO DESEJADA:             *");
 			System.out.println("********************************************************" + Cores.TEXT_RESET);
 
 			opcao = leia.nextInt();
@@ -38,7 +38,7 @@ public class Menu {
 			if (opcao == 6) {
 				System.out.println(Cores.TEXT_GREEN + Cores.ANSI_BLACK_BACKGROUND);
 				System.out.println("********************************************************");
-				System.out.println("BIKE ONE, LOJA DE AVENTURAS SOBRE DUAS RODAS - … AQUI!*");
+				System.out.println("BIKE ONE, LOJA DE AVENTURAS SOBRE DUAS RODAS - √â AQUI!*");
 				System.out.println("********************************************************");
 				System.out.println(Cores.TEXT_RESET);
 
@@ -58,7 +58,7 @@ public class Menu {
 				
 				break;
 			case 3:
-				System.out.println("Consultar dados do Produto - por n˙mero\n\n");
+				System.out.println("Consultar dados do Produto - por n√∫mero\n\n");
 
 				break;
 			case 4:
@@ -70,7 +70,7 @@ public class Menu {
 
 				break;
 				default:
-				System.out.println("\nOpÁ„o Inv·lida!\n");
+				System.out.println("\nOp√ß√£o Inv√°lida!\n");
 				break;
 			}
 		}
@@ -102,7 +102,7 @@ public class Menu {
 			}
 
 		} catch (IOException e) {
-			System.err.println("Erro de entrada/saÌda: " + e.getMessage());
+			System.err.println("Erro de entrada/sa√≠da: " + e.getMessage());
 		} catch (Exception e) {
 			System.err.println("Ocorreu um erro ao processar a entrada: " + e.getMessage());
 
