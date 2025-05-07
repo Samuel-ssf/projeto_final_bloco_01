@@ -1,7 +1,6 @@
 package projeto_final_bloco_01;
 
 import java.io.IOException;
-import java.util.Optional;
 import java.util.Scanner;
 
 import projeto_final_bloco_01.util.Cores;
@@ -51,23 +50,23 @@ public class Menu {
 			switch (opcao) {
 
 			case 1:
-				System.out.println("Criar Conta\n\n");
+				System.out.println("Criar Produto\n\n");
 				
 				break;
 			case 2:
-				System.out.println("Listar todas as Contas\n\n");
+				System.out.println("Listar todos os Produtos\n\n");
 				
 				break;
 			case 3:
-				System.out.println("Consultar dados da Conta - por número\n\n");
+				System.out.println("Consultar dados do Produto - por número\n\n");
 
 				break;
 			case 4:
-				System.out.println("Atualizar dados da Conta\n\n");
+				System.out.println("Atualizar dados do Produto\n\n");
 
 				break;
 			case 5:
-				System.out.println("Apagar a Conta\n\n");
+				System.out.println("Apagar o Produto\n\n");
 
 				break;
 				default:
